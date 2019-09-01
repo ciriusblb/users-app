@@ -1,0 +1,13 @@
+<p>
+  Lista de Usuarios!
+</p>
+<div *ngFor="let user of users">
+  {{user._id}} - {{user.first_name}} - {{user.last_name}} - {{user.email}}
+  <button (click)='destroy(user)'>
+    Delete
+  </button>
+  <button (click)='user.editable=!user.editable'>
+    Update
+  </button>
+  <app-user-edit *ngIf='user.editable' (updateUserEvent)='update($event)' [user]='user'></app-user-edit>
+</div>
